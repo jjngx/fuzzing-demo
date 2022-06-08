@@ -37,7 +37,7 @@ func TestReverse(t *testing.T) {
 
 	for _, tc := range tt {
 		t.Run(tc.name, func(t *testing.T) {
-			got := words.Reverse(tc.input)
+			got := words.ReverseString(tc.input)
 			if tc.want != got {
 				t.Errorf("want %q, got%q", tc.want, got)
 			}

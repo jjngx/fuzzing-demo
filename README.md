@@ -236,5 +236,24 @@ PASS
 ok  	github.com/jjngx/words	10.206s
 ```
 
+Fuzz tests failing
+```
+➜  fuzzing-demo git:(main) ✗ go test --fuzz=FuzzReverseRunes --fuzztime 60s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/3 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 3/3 completed, now fuzzing with 10 workers
+fuzz: minimizing 57-byte failing input file
+fuzz: elapsed: 0s, minimizing
+--- FAIL: FuzzReverseRunes (0.02s)
+    --- FAIL: FuzzReverseRunes (0.00s)
+        words_fuzz_test.go:53: want "\xdb", got "�"
+
+    Failing input written to testdata/fuzz/FuzzReverseRunes/a2f306083e514b06761088cdf06c4ba67f2aace662764dd6060deb8045b1e48d
+    To re-run:
+    go test -run=FuzzReverseRunes/a2f306083e514b06761088cdf06c4ba67f2aace662764dd6060deb8045b1e48d
+FAIL
+exit status 1
+FAIL	github.com/jjngx/words	0.925s
+```
+
 ## Fix failing functions
 
